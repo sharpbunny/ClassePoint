@@ -100,10 +100,20 @@ namespace POOClassePoint
         }
 
         //Cette fonction permet de déplacer un point en lui indiquant en paramètre des coordonnées cartésiennes
-        public void deplacerPoint(int ord, int abs)
+        public void deplacerPoint(int abs, int ord)
         {
             this.abscisse += abs;
             this.ordonnee += ord;
+        }
+
+        //Cette fonction permet d'inverser les coordonnées
+        //La valeur de l'abscisse devient celle de l'ordonnée et inversement
+        public void inversementCoordonnees()
+        {
+            int i = 0;
+            i = this.abscisse;
+            this.abscisse = this.ordonnee;
+            this.ordonnee = i;
         }
 
     }
