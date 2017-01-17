@@ -8,10 +8,14 @@ namespace POOClassePoint
 {
     class Point
     {
+        //*****************************
         //Attributs de la classe Point
+        //*****************************
+
+        //On place les attributs en private. Ils ne seront accessibles que grâce aux méthodes de la classe Point
         private int abscisse;
         private int ordonnee;
-        string nom;
+        private string nom;
 
         //****************
         // CONSTRUCTEURS
@@ -57,6 +61,13 @@ namespace POOClassePoint
         {
             this.nom = name;
         }
+
+        public void setCoordonnees(int abs, int ord) //permet de modifier les 2 coordonnées d'un point
+        {
+            this.abscisse = abs;
+            this.ordonnee = ord;
+        }
+
         //****************
         // ACCESSEURS
         //****************
@@ -85,6 +96,16 @@ namespace POOClassePoint
             Console.WriteLine(this.nom + " : (" + this.abscisse + "," + this.ordonnee + ")");
         }
 
+        //Cette fonction permet de calculer la distance entre CE point et le point pt
+        public double calculeDistance(Point pt)
+        {
+            double distance;
+            distance = (this.abscisse-pt.abscisse)* (this.abscisse - pt.abscisse);
+            distance += (this.ordonnee - pt.ordonnee) * (this.ordonnee - pt.ordonnee);
+            distance = Math.Sqrt(distance);
+            return distance;
+        }
+
         //Cette fonction compare les coordonnées de 2 points.
         //Si les coordonnées sont égales, la fonction renvoie 'true', sinon elle renvoie 'false'
         public bool comparerPoint(Point pt)
@@ -100,10 +121,27 @@ namespace POOClassePoint
         }
 
         //Cette fonction permet de déplacer un point en lui indiquant en paramètre des coordonnées cartésiennes
-        public void deplacerPoint(int ord, int abs)
+        public void deplacerPoint(int abs, int ord)
         {
             this.abscisse += abs;
             this.ordonnee += ord;
+        }
+
+        //Cette fonction permet aux coordonnées de ce point de prendre les coordonnées d'un autre point
+        public void egal(Point pt)
+        {
+            this.abscisse = pt.abscisse;
+            this.ordonnee = pt.ordonnee;
+        }
+
+        //Cette fonction permet d'inverser les coordonnées
+        //La valeur de l'abscisse devient celle de l'ordonnée et inversement
+        public void inversementCoordonnees()
+        {
+            int i = 0;
+            i = this.abscisse;
+            this.abscisse = this.ordonnee;
+            this.ordonnee = i;
         }
 
     }
