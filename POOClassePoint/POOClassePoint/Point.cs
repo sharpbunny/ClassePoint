@@ -99,5 +99,12 @@ namespace POOClassePoint
             return lesPointsSontIdentiques;
         }
 
+        //Cette fonction permet de déplacer un point en lui indiquant en paramètre des coordonnées cartésiennes
+        public void deplacerPoint(int ord, int abs)
+        {
+            this.abscisse += abs;
+            this.ordonnee += ord;
+        }
+
     }
 }
