@@ -8,10 +8,14 @@ namespace POOClassePoint
 {
     class Point
     {
+        //*****************************
         //Attributs de la classe Point
+        //*****************************
+
+        //On place les attributs en private. Ils ne seront accessibles que grâce aux méthodes de la classe Point
         private int abscisse;
         private int ordonnee;
-        string nom;
+        private string nom;
 
         //****************
         // CONSTRUCTEURS
@@ -22,6 +26,13 @@ namespace POOClassePoint
         {
             this.abscisse = 0;
             this.ordonnee = 0;
+            this.nom = null;
+        }
+
+        //Constructeur qui permet de définir juste le nom du point
+        public Point(string name)
+        {
+            this.nom = name;
         }
 
         //Constructeur avec deux paramètres
@@ -57,6 +68,13 @@ namespace POOClassePoint
         {
             this.nom = name;
         }
+
+        public void setCoordonnees(int abs, int ord) //permet de modifier les 2 coordonnées d'un point
+        {
+            this.abscisse = abs;
+            this.ordonnee = ord;
+        }
+
         //****************
         // ACCESSEURS
         //****************
@@ -131,6 +149,32 @@ namespace POOClassePoint
             i = this.abscisse;
             this.abscisse = this.ordonnee;
             this.ordonnee = i;
+        }
+
+        //Permet de multiplier les coordonnées d'un point par un nombre
+        public void multiplierCoordonnees(int multiplicateur)
+        {
+            this.abscisse *= multiplicateur;
+            this.ordonnee *= multiplicateur;
+        }
+
+        //Permet de créer le point symétrique à pt par rapport à l'axe des abscisses
+        public void symetriqueAbscisse(Point pt, int multiplicateur)
+        {
+            this.abscisse *= -1 * pt.abscisse;
+        }
+
+        //Permet de créer le point symétrique à pt par rapport à l'axe des ordonnées
+        public void symetriqueOrdonnee(Point pt, int multiplicateur)
+        {
+            this.ordonnee = -1 * pt.ordonnee;
+        }
+
+        //Permet de créer le point symétrique par rapport à l'origine du plan
+        public void pointSymetrique(Point pt, int multiplicateur)
+        {
+            this.abscisse = -1 * pt.abscisse;
+            this.ordonnee = -1 * pt.ordonnee;
         }
 
     }
